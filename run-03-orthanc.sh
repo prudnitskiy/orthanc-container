@@ -1,0 +1,36 @@
+docker run --name orthanc \
+    --env "ORTHANC__NAME=DEVLOCAL" \
+    --env "ORTHANC__DICOM_AET=DEVLOCAL" \
+    --env "ORTHANC__STORE_DICOM=true" \
+    --env "ORTHANC__VERBOSE_ENABLED=true" \
+    --env "ORTHANC__VERBOSE_STARTUP=true" \
+    --env "ORTHANC__STORAGE_DIRECTORY=/data" \
+    --env "ORTHANC__DICOM_MODALITIES={\"devlocal\" : [ \"devlocal\", \"localhost\", 4242 ]}" \
+    --env "ORTHANC__AUTHENTICATION_ENABLED=false" \
+    --env "ORTHANC__REMOTE_ACCESS_ALLOWED=true" \
+    --env "ORTHANC__SAVE_JOBS=false" \
+    --env "ORTHANC__OVERWRITE_INSTANCES=true" \
+    --env "ORTHANC__STORAGE_ACCESS_ON_FIND=Never" \
+    --env "ORTHANC__CONCURRENT_JOBS=0" \
+    --env "ORTHANC__POSTGRESQL__PLUGIN_ENABLED=true" \
+    --env "ORTHANC__POSTGRESQL__ENABLE_STORAGE=false" \
+    --env "ORTHANC__POSTGRESQL__ENABLE_INDEX=true" \
+    --env "ORTHANC__POSTGRESQL__ENABLE_SSL=false" \
+    --env "ORTHANC__POSTGRESQL__HOST=postgres" \
+    --env "ORTHANC__POSTGRESQL__DATABASE=orthancdb" \
+    --env "ORTHANC__POSTGRESQL__USERNAME=orthanc" \
+    --env "ORTHANC__POSTGRESQL__PASSWORD=82LvCwe6DJ7xXZXZ" \
+    --env "ORTHANC__DICOM_WEB__PLUGIN_ENABLED=true" \
+    --env "ORTHANC__AWS_S3_STORAGE__PLUGIN_ENABLED=true" \
+    --env "ORTHANC__AWS_S3_STORAGE__BUCKET_NAME=orthanc" \
+    --env "ORTHANC__AWS_S3_STORAGE__REGION=eu-west-1" \
+    --env "ORTHANC__AWS_S3_STORAGE__ENDPOINT=http://minio:9000/" \
+    --env "ORTHANC__AWS_S3_STORAGE__ACCESS_KEY=AACCESS" \
+    --env "ORTHANC__AWS_S3_STORAGE__SECRET_KEY=slDrp9iAQW9BqKTqktLAVXYLDoTnyZ6P" \
+    --env "ORTHANC__AWS_S3_STORAGE__VIRTUAL_ADDRESSING=false" \
+    --env "ORTHANC__AWS_S3_STORAGE__CONNECTION_TIMEOUT=30" \
+    --env "ORTHANC__AWS_S3_STORAGE__REQUEST_TIMEOUT=60" \
+    --publish 4242:4242 \
+    --publish 8042:8042 \
+    --network local-custom \
+    orthanc-s3:0.0.4-aws

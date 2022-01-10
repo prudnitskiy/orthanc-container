@@ -1,0 +1,171 @@
+{
+  "Authorization" : {
+    "enablingEnvVar" : "AUTHORIZATION_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "AUTHZ_ENABLED",
+    "libs" : ["libOrthancAuthorization.so"]
+  },
+
+  "AwsS3Storage" : {
+    "enablingEnvVar" : "AWS_S3_STORAGE_PLUGIN_ENABLED",
+    "libs" : ["libOrthancAwsS3Storage.so"]
+  },
+
+  "GoogleCloudStorage" : {
+    "enablingEnvVar" : "GOOGLE_CLOUD_STORAGE_PLUGIN_ENABLED",
+    "libs" : ["libOrthancGoogleCloudStorage.so"]
+  },
+
+  "ConnectivityChecks" : {
+    "enablingEnvVar" : "CONNECTIVITY_CHECKS_PLUGIN_ENABLED",
+    "libs" : ["libConnectivityChecks.so"]
+  },
+
+  "DicomWeb" : {
+    "nonStandardDefaults" : {
+      "Enable" : true
+    },
+    "enablingEnvVar" : "DICOM_WEB_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "DW_ENABLED",
+    "libs" : ["libOrthancDicomWeb.so"]
+  },
+
+  "Gdcm" : {
+    "enabledByDefault": true,
+    "nonStandardDefaults" : {
+      "Throttling" : 4,
+      "RestrictTransferSyntaxes" : [
+        "1.2.840.10008.1.2.4.90",
+        "1.2.840.10008.1.2.4.91",
+        "1.2.840.10008.1.2.4.92",
+        "1.2.840.10008.1.2.4.93" 
+      ]
+    },
+    "enablingEnvVar" : "GDCM_PLUGIN_ENABLED",
+    "libs" : ["libOrthancGdcm.so"]
+  },
+
+  "OrthancWebViewer" : {
+    "section" : "WebViewer",
+    "enablingEnvVarIsRequired": true,
+    "enablingEnvVar" : "ORTHANC_WEB_VIEWER_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "OWV_ENABLED",
+    "libs" : ["libOrthancWebViewer.so"]
+  },
+
+  "StoneWebViewer" : {
+    "enablingEnvVarIsRequired": true,
+    "enablingEnvVar" : "STONE_WEB_VIEWER_PLUGIN_ENABLED",
+    "libs" : ["libStoneWebViewer.so"]
+  },
+
+  "OsimisWebViewerBasic" : {
+    "section" : "WebViewer",
+    "enablingEnvVarIsRequired": true,
+    "enablingEnvVar" : "OSIMIS_WEB_VIEWER1_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "WVB_ENABLED",
+    "libs" : ["libOsimisWebViewer.so"]
+  },
+
+  "OsimisWebViewerBasicAlpha" : {
+    "section" : "WebViewer",
+    "enablingEnvVarIsRequired": true,
+    "enablingEnvVar" : "OSIMIS_WEB_VIEWER1_ALPHA_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "WVB_ALPHA_ENABLED",
+    "libs" : ["libOsimisWebViewerAlpha.so"]
+  },
+
+  "PostgreSQL" : {
+    "enablingEnvVar" : "POSTGRESQL_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "PG_ENABLED",
+    "nonStandardDefaults" : {
+      "EnableIndex": true,
+      "EnableStorage": false,
+      "Port": 5432,
+      "Host": "HOST MUST BE DEFINED",
+      "Database": "postgres",
+      "Username": "postgres",
+      "Password": "postgres",
+      "EnableSsl": false,
+      "Lock": false
+    },
+    "libs" : ["libOrthancPostgreSQLIndex.so", "libOrthancPostgreSQLStorage.so"]
+  },
+
+  "MySQL" : {
+    "enablingEnvVar" : "MYSQL_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "MYSQL_ENABLED",
+    "nonStandardDefaults" : {
+      "EnableIndex": true,
+      "EnableStorage": false,
+      "Port": 3306,
+      "Host": "HOST MUST BE DEFINED",
+      "Database": "mysql",
+      "Username": "root",
+      "Password": "mysql",
+      "Lock": false
+    },
+    "libs" : ["libOrthancMySQLIndex.so", "libOrthancMySQLStorage.so"]
+  },
+
+  "Python" : {
+    "enablingRootSetting": "PythonScript",
+    "enablingEnvVar" : "PYTHON_PLUGIN_ENABLED",
+    "libs" : ["libOrthancPython.so"]
+  },
+
+  "ServeFolders" : {
+    "enablingEnvVar" : "SERVE_FOLDERS_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "SERVEFOLDERS_ENABLED",
+    "libs" : ["libServeFolders.so"]
+  },
+
+  "Transfers" : {
+    "enablingEnvVar" : "TRANSFERS_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "TRANSFERS_ENABLED",
+    "libs" : ["libOrthancTransfers.so"]
+  },
+
+  "Worklists" : {
+    "nonStandardDefaults" : {
+      "Enable" : true,
+      "Database" : "/var/lib/orthanc/worklists"
+    },
+    "enablingEnvVar" : "WORKLISTS_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "WL_ENABLED",
+    "libs" : ["libModalityWorklists.so"]
+  },
+
+  "Wsi": {
+    "enablingEnvVar" : "WSI_PLUGIN_ENABLED",
+    "enablingEnvVarLegacy" : "WSI_ENABLED",
+    "libs" : ["libOrthancWSI.so"]
+  },
+
+  "Odbc" : {
+    "enablingEnvVar" : "ODBC_PLUGIN_ENABLED",
+    "nonStandardDefaults" : {
+      "EnableIndex": true,
+      "EnableStorage": false,
+      "IndexConnectionString": "MUST BE DEFINED",
+      "StorageConnectionString": "MUST BE DEFINED"
+    },
+    "libs" : ["libOrthancOdbcIndex.so", "libOrthancOdbcStorage.so"]
+  },
+
+  "Tcia": {
+    "enablingEnvVar" : "TCIA_PLUGIN_ENABLED",
+    "nonStandardDefaults" : {
+      "Enable" : true
+    },
+    "libs" : ["libOrthancTcia.so"]
+  },
+
+  "Indexer": {
+    "enablingEnvVar" : "INDEXER_PLUGIN_ENABLED",
+    "nonStandardDefaults" : {
+      "Enable" : true
+    },
+    "libs" : ["libOrthancIndexer.so"]
+  }
+
+}
